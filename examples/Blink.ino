@@ -1,5 +1,6 @@
 /*
   Adapted latch pin by Matheus Neiva.
+  (08/10/2015)
   -----------------------------------------------------
       RoboCore - Serial Relay example
                     (16/07/2015)
