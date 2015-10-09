@@ -33,7 +33,7 @@
 //void PCINT_Extension2(void){}
 
 #include <String_Functions.h>
-#include "SerialRelay.h"
+#include <SerialRelay.h>
 
 
 SerialRelay relays(4,5,6,8); // (data, clock, latch, number of modules)
