@@ -61,7 +61,7 @@ class SerialRelay {
 	  pinMode(_pinLatch, OUTPUT);
       digitalWrite(_pinData, LOW);
       digitalWrite(_pinClock, LOW);
-	  analogWrite(_pinLatch, 254);
+	  digitalWrite(_pinLatch, LOW);
       
       _tosend = false; // default
       
@@ -195,9 +195,11 @@ class SerialRelay {
           delayMicroseconds(SERIAL_RELAY_DELAY_DATA); // delay between Data and Clock signals
           
           // set Clock line
-          digitalWrite(_pinClock, HIGH); // rising edge
-          if((i == 8) && last_relay)
+          digitalWrite(_pinClock, HIGH);		  // rising edge
+          if((i == 8) && last_relay){
+			digitalWrite(_pinLatch, HIGH);
             delayMicroseconds(SERIAL_RELAY_DELAY_LATCH); // latch
+			digitalWrite(_pinLatch, LOW);}
           else
             delayMicroseconds(SERIAL_RELAY_DELAY_CLOCK_HIGH); // shift
           digitalWrite(_pinClock, LOW);
