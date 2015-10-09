@@ -2,8 +2,10 @@
   -----------------------------------------------------------------------------
   Arduino library modified by Matheus Neiva to work with the 'LATCH PIN' of the 
   74HC595 Shift Register.
-	         (v1.1 - 08/10/2015)
-		    Matheus Neiva
+		       Matheus Neiva
+		    (v1.1 - 08/10/2015)
+
+  
   ------------------------------------------------------------------------------
 	   RoboCore Serial Relay Library
 		    (v1.0 - 20/05/2015)
