@@ -19,7 +19,7 @@ const int NumModules = 2;    // maximum of 10
 const int PauseTime = 1000;  // [ms]
 
 SerialRelay relays(4,5,6,NumModules); // (data, clock, latch, number of modules)
-// to use with modules RoboCore, add 100 to latch
+// to use with modules RoboCore, do not use latch
 
 // --------------------------------------------------------------
 
