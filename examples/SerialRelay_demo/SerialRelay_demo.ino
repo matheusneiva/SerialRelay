@@ -37,7 +37,7 @@
 
 
 SerialRelay relays(4,5,6,8); // (data, clock, latch, number of modules)
-// to use with modules RoboCore, add 100 to latch
+// to use with modules RoboCore, do not use latch
 byte module = 1;
 
 #define BUFFER_SIZE 3
