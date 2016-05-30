@@ -17,7 +17,7 @@
 
 const byte NumModules = 1;
 SerialRelay relays(8,9,10,NumModules); // (data, clock, latch, number of modules)
-// to use with modules RoboCore, add 100 to latch
+// to use with modules RoboCore, do not use latch.
 
 // the setup routine runs once when you press reset:
 void setup() {
