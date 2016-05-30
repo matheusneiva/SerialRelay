@@ -52,16 +52,16 @@
 class SerialRelay {
   public:
     // Constructor
-    SerialRelay(int pinData, int pinClock, int pinLatch, byte qty = 1){
+    SerialRelay(int pinData, int pinClock, int pinLatch = 100000, byte qty = 1){
       _pinData = pinData;
       _pinClock = pinClock;
-	  _pinLatch  = pinLatch;;
+      _pinLatch  = pinLatch;;
       pinMode(_pinData, OUTPUT);
       pinMode(_pinClock, OUTPUT);
-	  pinMode(_pinLatch, OUTPUT);
+      pinMode(_pinLatch, OUTPUT);
       digitalWrite(_pinData, LOW);
       digitalWrite(_pinClock, LOW);
-	  digitalWrite(_pinLatch, LOW);
+      digitalWrite(_pinLatch, LOW);
       
       _tosend = false; // default
       
@@ -163,7 +163,7 @@ class SerialRelay {
   private:
     int _pinClock;
     int _pinData;
-	int _pinLatch;
+    int _pinLatch;
     byte _module_qty;
     byte _data[SERIAL_RELAY_MAX_MODULES];
     boolean _tosend; // TRUE if data to send
@@ -197,13 +197,13 @@ class SerialRelay {
           // set Clock line
           digitalWrite(_pinClock, HIGH);		  // rising edge
           if((i == 8) && last_relay){
-			digitalWrite(_pinLatch, HIGH);
+		digitalWrite(_pinLatch, HIGH);
             delayMicroseconds(SERIAL_RELAY_DELAY_LATCH); // latch
-			digitalWrite(_pinLatch, LOW);}
+		digitalWrite(_pinLatch, LOW);}
           else
             delayMicroseconds(SERIAL_RELAY_DELAY_CLOCK_HIGH); // shift
-          digitalWrite(_pinClock, LOW);
-          delayMicroseconds(SERIAL_RELAY_DELAY_CLOCK_LOW); // it is acceptable to have 5µs delay after the last bit has been sent
+            digitalWrite(_pinClock, LOW);
+            delayMicroseconds(SERIAL_RELAY_DELAY_CLOCK_LOW); // it is acceptable to have 5µs delay after the last bit has been sent
           
           mask >>= 1; // update mask
         }
